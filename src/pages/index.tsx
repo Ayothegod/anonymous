@@ -5,7 +5,6 @@ import { supabaseClient } from "@/lib/supabase";
 
 export default function Home() {
 
-  // console.log(supabaseClient);
   
   async function signUpWithEmail() {
     const { data, error } = await supabaseClient.auth.signUp({
@@ -13,7 +12,6 @@ export default function Home() {
     password: 'example-password',
     }
     )
-    // console.log(data,error);
   }
 
   async function signInWithEmail() {
