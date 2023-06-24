@@ -26,6 +26,7 @@ export default function Home() {
     <>
       <main className="m-20">
         <p className='text-2xl font-semibold leading-none border border-slate-200 p-4 rounded'>Welcome to the anonymous messaging app, lets create great stuff</p>
+        <p>Lets add stuff</p>
         <Header/>
 
 
