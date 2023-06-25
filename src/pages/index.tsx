@@ -8,10 +8,15 @@ export default function Home() {
   
   async function signUpWithEmail() {
     const { data, error } = await supabaseClient.auth.signUp({
-      email: 'heyayomideadebisi@email.com',
-    password: 'example-password',
-    }
-    )
+      email: 'example@email.com',
+      password: 'example-password',
+      options: {
+        data: {
+          first_name: 'John',
+          age: 27,
+        },
+      },
+    })
   }
 
   async function signInWithEmail() {
