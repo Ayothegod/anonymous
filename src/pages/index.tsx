@@ -1,10 +1,27 @@
 // import { Inter } from 'next/font/google'
 import Header from "@/components/Header";
 import { supabaseClient } from "@/lib/supabase";
+import { useEffect } from "react";
 // const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
+  useEffect(() => {
+    const getData = async() => {
+      let { data: messages, error } = await supabaseClient
+  .from('messages')
+  .select(`
+  id,
+  profiles (
+   id,full_name
+  )
+`)
+
+    console.log("message",messages);
+    
+      }
+      getData()
+  },[])
   
   async function signUpWithEmail() {
     const { data, error } = await supabaseClient.auth.signUp({
@@ -12,11 +29,13 @@ export default function Home() {
       password: 'example-password',
       options: {
         data: {
-          first_name: 'John',
-          age: 27,
+          full_name: 'John',
+          username: 'aiiomide',
         },
       },
     })
+
+    console.log(data,error);
   }
 
   async function signInWithEmail() {
@@ -25,6 +44,16 @@ export default function Home() {
       password: 'example-password',
     })
     console.log(data,error);
+  }
+
+  async function getMetadata() {
+    const {
+      data: { user },
+    }: any = await supabaseClient.auth.getUser()
+    // let metadata = user.user_metadata
+    console.log(user);
+    
+    
   }
   
   return (
@@ -35,6 +64,7 @@ export default function Home() {
         <Header/>
 
 
+        <button onClick={getMetadata} className="border border-slate-200 p-2 mx-4 rounded">Get metadata</button>
         <button onClick={signUpWithEmail} className="border border-slate-200 p-2 mx-4 rounded">Add users</button>
         <button onClick={signInWithEmail} className="border border-slate-200 p-2 mx-4 rounded">login</button>
       </main>
