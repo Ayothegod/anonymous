@@ -9,10 +9,18 @@ const Signup = () => {
     const [password,setPassword] = useState("")
     
     const signupUser = async() => {
-        const { data, error } = await supabaseClient.auth.signInWithPassword({
-            email: email,
-            password: password,
+        const { data, error } = await supabaseClient.auth.signUp({
+            email: 'example@email.com',
+            password: 'example-password',
+            options: {
+              data: {
+                full_name: 'John',
+                username: 'aiiomide',
+              },
+            },
           })
+      
+          console.log(data,error);
           if(data.user?.aud === "authenticated") return router.push("/user")
           console.log(data.user?.aud);
     }
