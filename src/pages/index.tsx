@@ -2,6 +2,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Offer from "@/components/Offer";
 import { supabaseClient } from "@/lib/supabase";
 import { useEffect } from "react";
 // const inter = Inter({ subsets: ['latin'] })
@@ -63,6 +64,7 @@ export default function Home() {
       <main className="px-2 max-w-[60rem] mx-auto">
         <Header/>
         <Hero/>
+        <Offer/>
         <Footer/>
 
         <div>
