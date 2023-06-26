@@ -31,7 +31,7 @@ const Signin = () => {
                 <div className="flex flex-col my-4 gap-4 items-center border-b pb-4 border-b-slate-200">
                     <input type="text" placeholder="email..." className="border-b border-b-slate-400 p-2 w-full outline-none focus:bg-slate-100" 
                     value={email} onChange={(e) => setEmail(e.target.value)} />
-                    <input type="password" placeholder="password..." className="border-b border-b-slate-400 p-2 w-full outline-none focus:bg-slate-100"
+                    <input type="password" placeholder="password... 6 or more characters" className="border-b border-b-slate-400 p-2 w-full outline-none focus:bg-slate-100"
                     value={password} onChange={(e) => setPassword(e.target.value)}/>
                     <p className="text-sm text-red-600 font-medium">{error}</p>
 
