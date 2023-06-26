@@ -20,7 +20,7 @@ export default function Home() {
     console.log("message",messages);
     
       }
-      getData()
+      // getData()
   },[])
   
   async function signUpWithEmail() {
