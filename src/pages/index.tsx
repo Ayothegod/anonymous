@@ -58,15 +58,14 @@ export default function Home() {
   
   return (
     <>
-      <main className="m-20">
-        <p className='text-2xl font-semibold leading-none border border-slate-200 p-4 rounded'>Welcome to the anonymous messaging app, lets create great stuff</p>
-        <p>Lets add stuff</p>
+      <main className="px-2 max-w-[60rem] mx-auto">
         <Header/>
 
-
-        <button onClick={getMetadata} className="border border-slate-200 p-2 mx-4 rounded">Get metadata</button>
+        <div>
+        {/* <button onClick={getMetadata} className="border border-slate-200 p-2 mx-4 rounded">Get metadata</button>
         <button onClick={signUpWithEmail} className="border border-slate-200 p-2 mx-4 rounded">Add users</button>
-        <button onClick={signInWithEmail} className="border border-slate-200 p-2 mx-4 rounded">login</button>
+      <button onClick={signInWithEmail} className="border border-slate-200 p-2 mx-4 rounded">login</button> */}
+      </div>
       </main>
     </>
   )
