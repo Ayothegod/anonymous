@@ -1,5 +1,6 @@
 // import { Inter } from 'next/font/google'
 import Header from "@/components/Header";
+import Hero from "@/components/Hero";
 import { supabaseClient } from "@/lib/supabase";
 import { useEffect } from "react";
 // const inter = Inter({ subsets: ['latin'] })
@@ -60,6 +61,7 @@ export default function Home() {
     <>
       <main className="px-2 max-w-[60rem] mx-auto">
         <Header/>
+        <Hero/>
 
         <div>
         {/* <button onClick={getMetadata} className="border border-slate-200 p-2 mx-4 rounded">Get metadata</button>
