@@ -16,11 +16,6 @@ const Signin = () => {
           if(data.user?.aud === "authenticated") return router.push("/user")
           console.log(data.user?.aud);
     }
-    // data.user.aud === "authenticated"
-    // example@email.com
-    // 'example-password'
-
-
     return (
         <div className="px-2 max-w-[60rem] mx-auto flex flex-col items-center justify-center">
             <h1 className="text-2xl font-semibold my-4">Anonymous</h1>
