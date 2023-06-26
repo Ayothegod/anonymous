@@ -24,9 +24,8 @@ const Signup = () => {
                 },
             },
         })
-        // if(data.user?.aud === "authenticated") return router.push("/signin")
-        console.log(data, error);
         if (error) return setError("user already exists!");
+        if(data.user?.aud === "authenticated") return router.push("/user")
     }
     // 'ayodasilva12@email.com', 'Softer1234', 'Nexxbux'
 
