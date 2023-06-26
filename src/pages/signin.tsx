@@ -35,7 +35,7 @@ const Signin = () => {
                     >Login</button>
                 </div>
 
-                <p className="text-sm text-slate-400 text-center">don&apos;t have an account? <Link href="/" className="text-slate-600 text-base underline">sign-up</Link></p>
+                <p className="text-sm text-slate-400 text-center">don&apos;t have an account? <Link href="/signup" className="text-slate-600 text-base underline">sign-up</Link></p>
             </div>
         </div>
     )

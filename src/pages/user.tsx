@@ -1,4 +1,5 @@
 import { supabaseClient } from "@/lib/supabase"
+import Link from "next/link"
 import { useEffect, useState } from "react"
 
 const User = () => {
@@ -17,7 +18,11 @@ const User = () => {
 
 
   return (
+    <div>
+
     <div>welcome {username}</div>
+    <Link href="/signup">Sign up</Link>
+    </div>
   )
 }
 
