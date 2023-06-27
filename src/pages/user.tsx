@@ -2,6 +2,7 @@ import { supabaseClient } from "@/lib/supabase"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import Dropdown from "@/components/ui-lib/Dropdown"
+import {CopyToClipboard} from "react-copy-to-clipboard"
 
 const User = () => {
   const [username, setUsername] = useState("")
