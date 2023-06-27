@@ -1,17 +1,9 @@
 import {
-    Cloud,
-    CreditCard,
-    Github,
-    Keyboard,
     LifeBuoy,
     LogOut,
-    Mail,
     MessageSquare,
-    Plus,
-    PlusCircle,
     Settings,
     User,
-    UserPlus,
     Users,
   } from "lucide-react"
   
@@ -35,86 +27,49 @@ import {
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline">Open</Button>
+          <Button variant="outline" className="bg-black text-white text-sm py-2 px-4 rounded font-semibold">Menu</Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56">
+
+        <DropdownMenuContent className="w-56 m-2">
+
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem>
               <User className="mr-2 h-4 w-4" />
               <span>My Profile</span>
-              <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              <CreditCard className="mr-2 h-4 w-4" />
-              <span>Billing</span>
-              <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-            </DropdownMenuItem>
+
             <DropdownMenuItem>
               <Settings className="mr-2 h-4 w-4" />
               <span>Settings</span>
-              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Keyboard className="mr-2 h-4 w-4" />
-              <span>Keyboard shortcuts</span>
-              <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
+
           <DropdownMenuGroup>
             <DropdownMenuItem>
+              <MessageSquare className="mr-2 h-4 w-4" />
+              <span>My Messages</span>
+            </DropdownMenuItem>
+
+            <DropdownMenuItem disabled>
               <Users className="mr-2 h-4 w-4" />
-              <span>Team</span>
+              <span>Group Message</span>
             </DropdownMenuItem>
-            <DropdownMenuSub>
-              <DropdownMenuSubTrigger>
-                <UserPlus className="mr-2 h-4 w-4" />
-                <span>Invite users</span>
-              </DropdownMenuSubTrigger>
-              <DropdownMenuPortal>
-                <DropdownMenuSubContent>
-                  <DropdownMenuItem>
-                    <Mail className="mr-2 h-4 w-4" />
-                    <span>Email</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <MessageSquare className="mr-2 h-4 w-4" />
-                    <span>Message</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <PlusCircle className="mr-2 h-4 w-4" />
-                    <span>More...</span>
-                  </DropdownMenuItem>
-                </DropdownMenuSubContent>
-              </DropdownMenuPortal>
-            </DropdownMenuSub>
-            <DropdownMenuItem>
-              <Plus className="mr-2 h-4 w-4" />
-              <span>New Team</span>
-              <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
-            </DropdownMenuItem>
+
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>
-            <Github className="mr-2 h-4 w-4" />
-            <span>GitHub</span>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
+
+          <DropdownMenuItem disabled>
             <LifeBuoy className="mr-2 h-4 w-4" />
             <span>Support</span>
           </DropdownMenuItem>
-          <DropdownMenuItem disabled>
-            <Cloud className="mr-2 h-4 w-4" />
-            <span>API</span>
-          </DropdownMenuItem>
           <DropdownMenuSeparator />
+
           <DropdownMenuItem>
             <LogOut className="mr-2 h-4 w-4" />
             <span>Log out</span>
-            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
