@@ -25,38 +25,11 @@ export default function Home() {
       }
       // getData()
   },[])
-  
-  async function signUpWithEmail() {
-    const { data, error } = await supabaseClient.auth.signUp({
-      email: 'example@email.com',
-      password: 'example-password',
-      options: {
-        data: {
-          full_name: 'John',
-          username: 'aiiomide',
-        },
-      },
-    })
-
-    console.log(data,error);
-  }
-
-  async function signInWithEmail() {
-    const { data, error } = await supabaseClient.auth.signInWithPassword({
-      email: 'example@email.com',
-      password: 'example-password',
-    })
-    console.log(data,error);
-  }
-
   async function getMetadata() {
     const {
       data: { user },
     }: any = await supabaseClient.auth.getUser()
-    // let metadata = user.user_metadata
     console.log(user);
-    
-    
   }
   
   return (
