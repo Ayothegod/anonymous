@@ -50,7 +50,7 @@ const Signin = () => {
                         value={password} onChange={(e) => setPassword(e.target.value)} />
                     <p className="text-sm text-red-600 font-medium">{error}</p>
 
-                    <label htmlFor="" className="text-sm text-slate-400">forgotten password? <Link href="/" className="text-slate-600 text-base underline">recover it now.</Link></label>
+                    <label htmlFor="" className="text-sm text-slate-400 cursor-not-allowed">forgotten password? <Link href="/" className="text-slate-600 text-base underline cursor-not-allowed">recover it now.</Link></label>
 
                     <button className="bg-black text-white text-sm p-2 rounded font-semibold w-full sm:w-2/3 hover:bg-white hover:border hover:border-slate-200 hover:text-black flex items-center justify-center" onClick={signinUser}
                     >{loader ?
