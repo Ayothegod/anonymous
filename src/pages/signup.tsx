@@ -2,6 +2,7 @@ import { supabaseClient } from "@/lib/supabase"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState } from "react"
+import { BiLoaderAlt } from "react-icons/bi"
 
 const Signup = () => {
     const router = useRouter()
@@ -9,8 +10,21 @@ const Signup = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
+    const [loader, setLoader] = useState(false)
 
     const signupUser = async () => {
+        let { data: profiles, error: allUsersError } = await supabaseClient
+            .from('profiles')
+            .select('username,email')
+        const usernames = profiles?.map(profile => profile.username)
+        const emails = profiles?.map(profile => profile.email)
+        // console.log(checkForUsername);
+        const checkForUsername = usernames?.includes(username)
+        const checkForEmail = emails?.includes(email)
+        if(checkForUsername === true) return setError("username already exists")
+        if(checkForEmail === true) return setError("email already exists")
+        if(checkForEmail && checkForUsername) return setError("user already exists!");
+
         if (username.length < 3) return setError("add username")
         if (email.length < 3) return setError("add email")
         if (!email.includes(".com")) return setError("invalid email")
@@ -24,11 +38,9 @@ const Signup = () => {
                 },
             },
         })
-        
-        if (error) return setError("user already exists!");
+        setLoader(true)
         if(data.user?.aud === "authenticated") return router.push("/user")
     }
-    // 'ayodasilva12@email.com', 'Softer1234', 'Nexxbux'
 
     return (
         <div className="px-2 max-w-[60rem] mx-auto flex flex-col items-center justify-center">
@@ -47,9 +59,10 @@ const Signup = () => {
                         value={password} onChange={(e) => setPassword(e.target.value)} />
                     <p className="text-sm text-red-600 font-medium">{error}</p>
                     {/* <label htmlFor="" className="text-sm text-slate-400">forgotten password? <Link href="/" className="text-slate-600 text-base underline">recover it now.</Link></label> */}
-                    <button className="bg-black text-white text-sm p-2 rounded font-semibold w-full sm:w-2/3 hover:bg-white hover:border hover:border-slate-200 hover:text-black"
+                    <button className="bg-black text-white text-sm p-2 rounded font-semibold w-full sm:w-2/3 hover:bg-white hover:border hover:border-slate-200 hover:text-black flex items-center justify-center"
                         onClick={signupUser}
-                    >Register</button>
+                    >{loader ?
+                        <BiLoaderAlt className="text-xl animate-spin" /> : "Register"}</button>
                 </div>
 
                 <p className="text-sm text-slate-400 text-center">have an account? <Link href="/signin" className="text-slate-600 text-base underline">sign-in</Link></p>
