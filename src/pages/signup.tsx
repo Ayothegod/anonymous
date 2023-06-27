@@ -24,6 +24,7 @@ const Signup = () => {
                 },
             },
         })
+        
         if (error) return setError("user already exists!");
         if(data.user?.aud === "authenticated") return router.push("/user")
     }
