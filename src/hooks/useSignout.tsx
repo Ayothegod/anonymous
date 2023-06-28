@@ -7,7 +7,7 @@ const useSignout = () => {
 
     async function signout() {
         const { error } = await supabaseClient.auth.signOut()
-        if (!error) return console.log("who");
+        if (!error) return router.push("/signin")
         
         console.log(error);
       }

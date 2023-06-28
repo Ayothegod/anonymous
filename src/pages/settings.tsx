@@ -7,10 +7,11 @@ import useSignout from "@/hooks/useSignout"
 import { useUserContext } from "@/hooks/UserContext"
 
 const Settings = () => {
-  const sign: any = useSignout()
+  const signout: any = useSignout()
   const user = useUserContext()
+  console.log(user);
+  
   const [username, setUsername] = useState<any>("Brother")
-  const [openSetting, setOpenSetting] = useState(false)
   return (
     <div className="px-2 max-w-[60rem] mx-auto">
       <nav className="p-2 flex item-center justify-between border-b border-b-slate-200 relative">
@@ -37,7 +38,7 @@ const Settings = () => {
               <Popover username={username} value="Update Password" setUsername={setUsername} />
             </div>
             <div className="flex flex-col items-center justify-center">
-              <button className="bg-white text-black border border-slate-200 text-sm py-2 px-6 rounded font-semibold w-[90vw] sm:w-60 flex items-center justify-center gap-4" onClick={sign}><LogOut className="h-5 w-5"/>Logout</button>
+              <button className="bg-white text-black border border-slate-200 text-sm py-2 px-6 rounded font-semibold w-[90vw] sm:w-60 flex items-center justify-center gap-4" onClick={signout}><LogOut className="h-5 w-5"/>Logout</button>
             </div>
           </div>
         </div>

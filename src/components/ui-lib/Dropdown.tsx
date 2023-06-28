@@ -25,14 +25,11 @@ import {
 import { supabaseClient } from "@/lib/supabase"
 import { useRouter } from "next/router"
 import Link from "next/link"
+import useSignout from "@/hooks/useSignout"
 
 export default function DropdownMenuDemo() {
+  const signout: any = useSignout()
   const router = useRouter()
-  async function signout() {
-    const { error } = await supabaseClient.auth.signOut()
-    if (!error) return router.push("/signin")
-    console.log(error);
-  }
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
