@@ -44,10 +44,12 @@ export default function DropdownMenuDemo() {
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
+        <Link href="/profile">
           <DropdownMenuItem>
             <User className="mr-2 h-4 w-4" />
             <span>My Profile</span>
           </DropdownMenuItem>
+        </Link>
 
           <Link href="/settings">
             <DropdownMenuItem>
