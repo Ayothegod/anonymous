@@ -44,7 +44,7 @@ const User = () => {
         <h2 className="text-lg">welcome <span className="font-semibold text-2xl capitalize">{username}</span></h2>
 
         <div className="flex flex-col sm:flex-row items-center justify-center mt-10 gap-2">
-          <input type="text" value={copyValue} className="border-none bg-slate-200 py-2 rounded outline-none px-1 w-[90vw] sm:w-96"
+          <input type="text" value={copyValue} className="border-none bg-slate-200 py-2 rounded outline-none px-2 w-full sm:w-96"
             onChange={e => setCopyValue(e.target.value)} />
 
           <CopyToClipboard text={copyValue}
