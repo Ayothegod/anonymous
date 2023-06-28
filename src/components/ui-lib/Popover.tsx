@@ -4,17 +4,8 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import { useUserContext } from "@/hooks/UserContext"
-import { supabaseClient } from "@/lib/supabase"
-import { useState } from "react"
 
 const Popover = ({ username, setUsername, value, popcontent, updateUser }: any) => {
-    // const updateUser = async () => {
-    //     const { data, error } = await supabaseClient.auth.updateUser({
-    //         data: { username: 'brother@gmail.com' }
-    //     })
-    //     console.log(data,error);
-    // }
-
     return (
         <div>
             <Pop>
