@@ -4,14 +4,14 @@ import { useEffect, useState } from "react"
 import Dropdown from "@/components/ui-lib/Dropdown"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import { useRouter } from "next/router"
-import Footer from "@/components/Footer"
 import { Share2, Settings } from "lucide-react"
 import ShareOnSocial from "react-share-on-social";
-import favicon from "@/assets/share-2.png"
 import Image from "next/image"
+import { useUserContext } from "@/hooks/UserContext"
 
 const User = () => {
   const router = useRouter()
+  const user = useUserContext()
   const [username, setUsername] = useState("")
   const [copyValue, setCopyValue] = useState("https://anonymous.vercel.app/user")
   const [copyState, setCopyState] = useState(false)
@@ -34,7 +34,7 @@ const User = () => {
   return (
     <div className="px-2 max-w-[60rem] mx-auto">
       <nav className="p-2 flex item-center justify-between border-b border-b-slate-200 relative">
-        <Link href="/user">
+        <Link href={user?.email ? "/user" : "/signin"}>
           <h1 className="text-2xl font-semibold">Anonymous</h1>
         </Link>
         <div>
