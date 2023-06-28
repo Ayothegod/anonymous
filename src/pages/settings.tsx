@@ -5,14 +5,26 @@ import { useState } from "react"
 import { LogOut } from "lucide-react"
 import useSignout from "@/hooks/useSignout"
 import { useUserContext } from "@/hooks/UserContext"
+import { supabaseClient } from "@/lib/supabase"
 
 const Settings = () => {
   const signout: any = useSignout()
   const user = useUserContext()
   console.log(user);
-  const [username, setUsername] = useState<any>(user?.user_metadata.username)
+  if(user) {
+    const usernameString = user?.user_metadata?.username
+  }
+  const [username, setUsername] = useState<any>(user?.user_metadata?.username)
   const [email,setEmail] = useState(user?.email)
   const [password,setPassword] = useState("")
+
+  const updateUsername = async () => {
+    const { data, error } = await supabaseClient.auth.updateUser({
+        data: { username: 'brother@gmail.com' }
+    })
+    console.log(data,error);
+}
+
   return (
     <div className="px-2 max-w-[60rem] mx-auto">
       <nav className="p-2 flex item-center justify-between border-b border-b-slate-200 relative">
@@ -30,7 +42,7 @@ const Settings = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 w-full p-4 gap-4">
 
             <div className="flex flex-col items-center justify-center">
-              <Popover username={username} popcontent="Correct Username" value="Update Username" setUsername={setUsername} />
+              <Popover username={username} popcontent="Correct Username" value="Update Username" setUsername={setUsername} updateUsername={updateUsername} />
             </div>
             <div className="flex flex-col items-center justify-center">
               <Popover username={email} popcontent="Correct Email" value="Update Email" setUsername={setEmail} />
