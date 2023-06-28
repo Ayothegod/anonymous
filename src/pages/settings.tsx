@@ -21,8 +21,10 @@ const Settings = () => {
       <div className="mt-8">
         <h2 className="font-semibold text-2xl capitalize text-center">Settings</h2>
         <div className="flex flex-col items-center justify-center mt-4">
-          {/* <button className="bg-black text-white text-sm py-2 px-6 rounded font-semibold" onClick={() => setOpenSetting(!openSetting)}>Change Username</button> */}
-          <Popover username={username} setUsername={setUsername}/>
+          <Popover username={username} setUsername={setUsername} />
+        </div>
+        <div className="flex flex-col items-center justify-center mt-4">
+          <Popover username={username} setUsername={setUsername} />
         </div>
       </div>
 
