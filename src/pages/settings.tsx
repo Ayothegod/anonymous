@@ -1,8 +1,11 @@
 import Header from "@/components/Header"
 import Dropdown from "@/components/ui-lib/Dropdown"
 import Link from "next/link"
+import { useState } from "react"
 
 const Settings = () => {
+  const [username,setUsername] = useState("Brother")
+  const [openSetting,setOpenSetting] = useState(false)
   return (
     <div className="px-2 max-w-[60rem] mx-auto">
       <nav className="p-2 flex item-center justify-between border-b border-b-slate-200 relative">
@@ -14,11 +17,12 @@ const Settings = () => {
         </div>
       </nav>
 
-      <div>
-        <h2 className="font-semibold text-2xl capitalize">Settings</h2>
-        <p>settings page
-
-        </p>
+      <div className="mt-8">
+        <h2 className="font-semibold text-2xl capitalize text-center">Settings</h2>
+        <div className="flex flex-col items-center justify-center mt-4">
+          <button className="bg-black text-white text-sm py-2 px-6 rounded font-semibold" onClick={() => setOpenSetting(!openSetting)}>Change Username</button>
+          {openSetting && <input type="text" placeholder={username} value={username} onChange={e => setUsername(e.target.value)} className="border" />}
+        </div>
       </div>
     </div>
   )
