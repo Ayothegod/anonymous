@@ -5,7 +5,10 @@ import Dropdown from "@/components/ui-lib/Dropdown"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import { useRouter } from "next/router"
 import Footer from "@/components/Footer"
-import {Share2} from "lucide-react"
+import { Share2 } from "lucide-react"
+import ShareOnSocial from "react-share-on-social";
+import favicon from "@/assets/share-2.png"
+import Image from "next/image"
 
 const User = () => {
   const router = useRouter()
@@ -54,23 +57,35 @@ const User = () => {
 
       <div className="my-8 md:mx-20">
         <h2 className="text-xl font-medium text-slate-800">My Messages</h2>
-        <div className="py-8"> 
+        <div className="py-8">
           <p>No messages available right now</p>
         </div>
       </div>
-      <div>
+
+      <div className="mb-8 flex items-center gap-4 justify-center">
         <Link href="/settings">
           <button className="bg-black text-white text-sm py-2 px-8 rounded font-semibold">Settings</button>
         </Link>
-        <Link href="/settings">
-        {/* <Share2 /> */}
-          <button><Share2 /> Share your link</button>
-        </Link>
+        <button className="flex items-center justify-center bg-white text-black border border-slate-500 text-sm py-2 px-8 rounded font-semibold gap-2"><Share2 className="h-4 w-4" /> Share on social</button>
       </div>
-      {/* <button onClick={signout}>Sign out</button> */}
-      {/* <Footer /> */}
+
+
+
+      <div>
+
+        {/* <button onClick={signout}>Sign out</button> */}
+        {/* <ShareOnSocial
+      textToShare="Check out this new wardrobe I just found from IKEA!"
+      link="https://ikea.com/wardrobes/kalle"
+      linkTitle="KALLE Wardorbe which chooses your clothes for you using AI - IKEA"
+      linkMetaDesc="Stop going through the agony of choosing clothes that fit the weather and your mood."
+      linkFavicon={favicon}
+      noReferer
+      >
+      <button>Share this product</button>
+    </ShareOnSocial> */}
+      </div>
     </div>
   )
 }
-// jksajksjkjkswekewioioweop
 export default User
