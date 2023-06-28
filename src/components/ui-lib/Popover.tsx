@@ -6,9 +6,7 @@ import {
 import { useUserContext } from "@/hooks/UserContext"
 import { useState } from "react"
 
-const Popover = ({ username, setUsername, value }: any) => {
-    // const user = useUserContext()
-//   const [username, setUsername] = useState<any>("Brother")
+const Popover = ({ username, setUsername, value, popcontent }: any) => {
 
     return (
         <div>
@@ -17,7 +15,7 @@ const Popover = ({ username, setUsername, value }: any) => {
                 <PopoverContent>
                     <div className="flex flex-col gap-2">
                         <input type="text" placeholder={username} value={username} onChange={e => setUsername(e.target.value)} className="border border-slate-300 rounded py-1 px-2 outline-slate-600 w-full"/>
-                        <button className="bg-slate-800 text-white text-sm py-2 px-6 rounded font-semibold" >Correct Username</button>
+                        <button className="bg-slate-800 text-white text-sm py-2 px-6 rounded font-semibold" >{popcontent}</button>
                     </div>
                 </PopoverContent>
             </Pop>

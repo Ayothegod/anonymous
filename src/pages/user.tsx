@@ -12,6 +12,8 @@ import { useUserContext } from "@/hooks/UserContext"
 const User = () => {
   const router = useRouter()
   const user = useUserContext()
+  console.log(user);
+  
   const [username, setUsername] = useState("")
   const [copyValue, setCopyValue] = useState("https://anonymous.vercel.app/user")
   const [copyState, setCopyState] = useState(false)

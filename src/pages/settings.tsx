@@ -2,7 +2,7 @@ import Dropdown from "@/components/ui-lib/Dropdown"
 import Popover from "@/components/ui-lib/Popover"
 import Link from "next/link"
 import { useState } from "react"
-import {LogOut} from "lucide-react"
+import { LogOut } from "lucide-react"
 import useSignout from "@/hooks/useSignout"
 import { useUserContext } from "@/hooks/UserContext"
 
@@ -10,8 +10,9 @@ const Settings = () => {
   const signout: any = useSignout()
   const user = useUserContext()
   console.log(user);
-  
-  const [username, setUsername] = useState<any>("Brother")
+  const [username, setUsername] = useState<any>(user?.user_metadata.username)
+  const [email,setEmail] = useState(user?.email)
+  const [password,setPassword] = useState("")
   return (
     <div className="px-2 max-w-[60rem] mx-auto">
       <nav className="p-2 flex item-center justify-between border-b border-b-slate-200 relative">
@@ -29,16 +30,16 @@ const Settings = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 w-full p-4 gap-4">
 
             <div className="flex flex-col items-center justify-center">
-              <Popover username={username} value="Update Username" setUsername={setUsername} />
+              <Popover username={username} popcontent="Correct Username" value="Update Username" setUsername={setUsername} />
             </div>
             <div className="flex flex-col items-center justify-center">
-              <Popover username={username} value="Update Email" setUsername={setUsername} />
+              <Popover username={email} popcontent="Correct Email" value="Update Email" setUsername={setEmail} />
             </div>
             <div className="flex flex-col items-center justify-center">
-              <Popover username={username} value="Update Password" setUsername={setUsername} />
+              <Popover username={password} popcontent="Correct Password" value="Update Password" setUsername={setPassword} />
             </div>
             <div className="flex flex-col items-center justify-center">
-              <button className="bg-white text-black border border-slate-200 text-sm py-2 px-6 rounded font-semibold w-[90vw] sm:w-60 flex items-center justify-center gap-4" onClick={signout}><LogOut className="h-5 w-5"/>Logout</button>
+              <button className="bg-white text-black border border-slate-200 text-sm py-2 px-6 rounded font-semibold w-[90vw] sm:w-60 flex items-center justify-center gap-4" onClick={signout}><LogOut className="h-5 w-5" />Logout</button>
             </div>
           </div>
         </div>

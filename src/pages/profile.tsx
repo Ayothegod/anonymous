@@ -5,7 +5,7 @@ import Link from "next/link"
 
 const Profile = () => {
     const user = useUserContext()
-    // console.log(user);
+    console.log(user);
 
     return (
         <div className="px-2 max-w-[60rem] mx-auto mb-8">
