@@ -5,6 +5,7 @@ import Dropdown from "@/components/ui-lib/Dropdown"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import { useRouter } from "next/router"
 import Footer from "@/components/Footer"
+import {Share2} from "lucide-react"
 
 const User = () => {
   const router = useRouter()
@@ -16,17 +17,17 @@ const User = () => {
     const getCurrentUser = async () => {
       const { data: { user } } = await supabaseClient.auth.getUser()
       setUsername(user?.user_metadata.username)
-      if(!user) return router.push("/signin")
+      if (!user) return router.push("/signin")
     }
     getCurrentUser()
   }, [])
 
-    async function signout() {
-      const { error } = await supabaseClient.auth.signOut()
-      if(!error) return router.push("/signin")
-      console.log(error);
-    }
-    
+  async function signout() {
+    const { error } = await supabaseClient.auth.signOut()
+    if (!error) return router.push("/signin")
+    console.log(error);
+  }
+
   return (
     <div className="px-2 max-w-[60rem] mx-auto">
       <nav className="p-2 flex item-center justify-between border-b border-b-slate-200 relative">
@@ -40,7 +41,7 @@ const User = () => {
         <h2 className="text-lg mx-4">welcome <span className="font-semibold text-2xl capitalize">{username}</span></h2>
 
         <div className="flex flex-col sm:flex-row items-center justify-center mt-10 gap-2">
-          <input type="text" value={copyValue} className="border-none bg-slate-200 py-2 rounded outline-none px-4"
+          <input type="text" value={copyValue} className="border-none bg-slate-200 py-2 rounded outline-none px-1 w-96"
             onChange={e => setCopyValue(e.target.value)} />
 
           <CopyToClipboard text={copyValue}
@@ -52,11 +53,22 @@ const User = () => {
       </div>
 
       <div className="my-8 md:mx-20">
-        <h2 className="text-xl font-medium text-slate-700">My Messages</h2>
-        <p>No messages available right now</p>
+        <h2 className="text-xl font-medium text-slate-800">My Messages</h2>
+        <div className="py-8"> 
+          <p>No messages available right now</p>
+        </div>
+      </div>
+      <div>
+        <Link href="/settings">
+          <button className="bg-black text-white text-sm py-2 px-8 rounded font-semibold">Settings</button>
+        </Link>
+        <Link href="/settings">
+        {/* <Share2 /> */}
+          <button><Share2 /> Share your link</button>
+        </Link>
       </div>
       {/* <button onClick={signout}>Sign out</button> */}
-      <Footer/>
+      {/* <Footer /> */}
     </div>
   )
 }
