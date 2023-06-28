@@ -26,7 +26,14 @@ const Settings = () => {
   }
 
   const updateEmail = async () => {
-    const { data, error } = await supabaseClient.auth.updateUser({ email: 'new@gmail.com' })
+    const { data, error } = await supabaseClient.auth.updateUser({ email: 'heyayomideadebisi@gmail.com' })
+    console.log(data, error);
+
+  }
+
+  const updatePassword = async () => {
+
+    const { data, error } = await supabaseClient.auth.updateUser({ password: 'new@gmail.com' })
     console.log(data, error);
 
   }
@@ -51,7 +58,7 @@ const Settings = () => {
               <Popover username={username} popcontent="Correct Username" value="Update Username" setUsername={setUsername} updateUser={updateUsername} />
             </div>
             <div className="flex flex-col items-center justify-center">
-              <Popover username={email} popcontent="Correct Email" value="Update Email" setUsername={setEmail} updateUser={updateEmail}/>
+              <Popover username={email} popcontent="Correct Email" value="Update Email" setUsername={setEmail} updateUser={updateEmail} />
             </div>
             <div className="flex flex-col items-center justify-center">
               <Popover username={password} popcontent="Correct Password" value="Update Password" setUsername={setPassword} />

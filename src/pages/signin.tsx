@@ -28,6 +28,8 @@ const Signin = () => {
             email: email,
             password: password,
         })
+        console.log(data,error);
+        
         if(error) return setError("wrong password")
         setLoader(true)
           if(data.user?.aud === "authenticated") return router.push("/user")
