@@ -6,6 +6,9 @@ const Settings = () => {
         <Header/>
         <div>
             <h2 className="font-semibold text-2xl capitalize">Settings</h2>
+            <p>settings page
+                
+            </p>
         </div>
     </div>
   )
