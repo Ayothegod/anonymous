@@ -7,7 +7,7 @@ import { useUserContext } from "@/hooks/UserContext"
 import { supabaseClient } from "@/lib/supabase"
 import { useState } from "react"
 
-const Popover = ({ username, setUsername, value, popcontent, updateUsername }: any) => {
+const Popover = ({ username, setUsername, value, popcontent, updateUser }: any) => {
     // const updateUser = async () => {
     //     const { data, error } = await supabaseClient.auth.updateUser({
     //         data: { username: 'brother@gmail.com' }
@@ -22,7 +22,7 @@ const Popover = ({ username, setUsername, value, popcontent, updateUsername }: a
                 <PopoverContent>
                     <div className="flex flex-col gap-2">
                         <input type="text" placeholder={username} value={username} onChange={e => setUsername(e.target.value)} className="border border-slate-300 rounded py-1 px-2 outline-slate-600 w-full" />
-                        <button className="bg-slate-800 text-white text-sm py-2 px-6 rounded font-semibold" onClick={updateUsername}>{popcontent}</button>
+                        <button className="bg-slate-800 text-white text-sm py-2 px-6 rounded font-semibold" onClick={updateUser}>{popcontent}</button>
                     </div>
                 </PopoverContent>
             </Pop>
