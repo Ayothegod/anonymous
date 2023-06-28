@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { supabaseClient } from "@/lib/supabase"
 import { useRouter } from "next/router"
+import Link from "next/link"
 
 export default function DropdownMenuDemo() {
   const router = useRouter()
@@ -48,10 +49,12 @@ export default function DropdownMenuDemo() {
             <span>My Profile</span>
           </DropdownMenuItem>
 
-          <DropdownMenuItem>
-            <Settings className="mr-2 h-4 w-4" />
-            <span>Settings</span>
-          </DropdownMenuItem>
+          <Link href="/settings">
+            <DropdownMenuItem>
+              <Settings className="mr-2 h-4 w-4" />
+              <span>Settings</span>
+            </DropdownMenuItem>
+          </Link>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
 

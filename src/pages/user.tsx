@@ -5,7 +5,7 @@ import Dropdown from "@/components/ui-lib/Dropdown"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import { useRouter } from "next/router"
 import Footer from "@/components/Footer"
-import { Share2 } from "lucide-react"
+import { Share2,Settings } from "lucide-react"
 import ShareOnSocial from "react-share-on-social";
 import favicon from "@/assets/share-2.png"
 import Image from "next/image"
@@ -64,7 +64,7 @@ const User = () => {
 
       <div className="mb-8 flex items-center gap-4 justify-center">
         <Link href="/settings">
-          <button className="bg-black text-white text-sm py-2 px-8 rounded font-semibold">Settings</button>
+          <button className="bg-black text-white text-sm py-2 px-8 rounded font-semibold flex items-center justify-center gap-2"><Settings className="h-4 w-4" />Settings</button>
         </Link>
         <button className="flex items-center justify-center bg-white text-black border border-slate-500 text-sm py-2 px-8 rounded font-semibold gap-2"><Share2 className="h-4 w-4" /> Share on social</button>
       </div>
