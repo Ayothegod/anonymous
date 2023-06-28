@@ -16,6 +16,7 @@ const Signup = () => {
         let { data: profiles, error: allUsersError } = await supabaseClient
             .from('profiles')
             .select('username,email')
+            
         const usernames = profiles?.map(profile => profile.username)
         const emails = profiles?.map(profile => profile.email)
         // console.log(checkForUsername);
