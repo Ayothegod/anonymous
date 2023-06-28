@@ -26,10 +26,8 @@ export default function Home() {
       // getData()
   },[])
   async function getMetadata() {
-    const {
-      data: { user },
-    }: any = await supabaseClient.auth.getUser()
-    console.log(user);
+    const { data }: any = await supabaseClient.auth.getUser()
+    // console.log(user);
   }
   
   return (
