@@ -11,6 +11,9 @@ const Footer = () => {
             <Link href="/"><p>Terms of service.</p></Link>
             <Link href="/"><p>Disclaimer.</p></Link>
         </div>
+        <Link href="https://ayomide.me" className="grid place-items-center">
+          <button className="text-xs bg-slate-200 rounded p-1 mt-1 hover:bg-black hover:text-white ">Built by Aiolabs</button>
+        </Link>
     </div>
   )
 }
