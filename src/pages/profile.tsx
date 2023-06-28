@@ -1,6 +1,7 @@
 import Header from "@/components/Header"
 import Dropdown from "@/components/ui-lib/Dropdown"
 import { useUserContext } from "@/hooks/UserContext"
+import Link from "next/link"
 
 const Profile = () => {
     const user = useUserContext()
@@ -9,7 +10,9 @@ const Profile = () => {
     return (
         <div className="px-2 max-w-[60rem] mx-auto mb-8">
             <nav className="p-2 flex item-center justify-between border-b border-b-slate-200 relative">
-                <h1 className="text-2xl font-semibold">Anonymous</h1>
+                <Link href="/user">
+                    <h1 className="text-2xl font-semibold">Anonymous</h1>
+                </Link>
                 <div>
                     <Dropdown />
                 </div>

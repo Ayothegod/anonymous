@@ -5,7 +5,7 @@ import Dropdown from "@/components/ui-lib/Dropdown"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import { useRouter } from "next/router"
 import Footer from "@/components/Footer"
-import { Share2,Settings } from "lucide-react"
+import { Share2, Settings } from "lucide-react"
 import ShareOnSocial from "react-share-on-social";
 import favicon from "@/assets/share-2.png"
 import Image from "next/image"
@@ -34,7 +34,9 @@ const User = () => {
   return (
     <div className="px-2 max-w-[60rem] mx-auto">
       <nav className="p-2 flex item-center justify-between border-b border-b-slate-200 relative">
-        <h1 className="text-2xl font-semibold">Anonymous</h1>
+        <Link href="/user">
+          <h1 className="text-2xl font-semibold">Anonymous</h1>
+        </Link>
         <div>
           <Dropdown />
         </div>
