@@ -23,7 +23,7 @@ const Signin = () => {
 
         if (email.length < 3) return setError("add email")
         if (!email.includes(".com")) return setError("invalid email")
-        if (password.length < 6) return setError("password is too short")
+        if (password.length < 8) return setError("password is too short")
         const { data, error } = await supabaseClient.auth.signInWithPassword({
             email: email,
             password: password,
